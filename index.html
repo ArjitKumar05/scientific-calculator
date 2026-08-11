@@ -3,71 +3,121 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <title>Scientific Calculator | Arjit Kumar | CodSoft</title>
-
+    <title>Scientific Calculator | Arjit Kumar</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
   </head>
 
   <body>
-    <!-- CodSoft Internship -->
-    <div class="internship-title">CodSoft Web Development Internship</div>
+    <div class="glow glow-one"></div>
+    <div class="glow glow-two"></div>
 
-    <!-- Calculator -->
-    <div class="calculator">
-      <!-- Calculator Title -->
-      <div class="developer">
-        <div class="project-title">Scientific Calculator</div>
-      </div>
+    <main class="container">
+      <header class="hero">
+        <div class="badge">
+          <span></span>
+          CODSOFT WEB DEVELOPMENT INTERNSHIP
+        </div>
 
-      <!-- Display -->
-      <input type="text" id="display" readonly />
+        <h1>Arjit Kumar</h1>
+        <p>Scientific Calculator</p>
+      </header>
 
-      <!-- Calculator Buttons -->
-      <div class="buttons">
-        <button class="function" onclick="clearDisplay()">AC</button>
-        <button class="function" onclick="deleteLast()">DEL</button>
-        <button class="function" onclick="appendValue('%')">%</button>
-        <button class="operator" onclick="appendValue('/')">÷</button>
+      <section class="calculator">
+        <div class="top-bar">
+          <div>
+            <h2>Premium Calculator</h2>
+            <small>Scientific • Smart • Responsive</small>
+          </div>
 
-        <button class="function" onclick="appendFunction('sin')">sin</button>
-        <button class="function" onclick="appendFunction('cos')">cos</button>
-        <button class="function" onclick="appendFunction('tan')">tan</button>
-        <button class="operator" onclick="appendValue('*')">×</button>
+          <button id="historyBtn" class="history-btn">↺</button>
+        </div>
 
-        <button class="function" onclick="appendFunction('log')">log</button>
-        <button class="function" onclick="appendValue('Math.PI')">π</button>
-        <button class="function" onclick="squareRoot()">√</button>
-        <button class="operator" onclick="appendValue('-')">−</button>
+        <div class="display">
+          <div id="expression" class="expression"></div>
+          <div id="result" class="result">0</div>
+        </div>
 
-        <button onclick="appendValue('7')">7</button>
-        <button onclick="appendValue('8')">8</button>
-        <button onclick="appendValue('9')">9</button>
-        <button class="operator" onclick="appendValue('+')">+</button>
+        <div class="mode-row">
+          <button id="modeBtn" class="mode-btn">DEG</button>
+          <span id="modeText">Degree Mode</span>
+        </div>
 
-        <button onclick="appendValue('4')">4</button>
-        <button onclick="appendValue('5')">5</button>
-        <button onclick="appendValue('6')">6</button>
-        <button onclick="square()">x²</button>
+        <div class="scientific-buttons">
+          <button class="scientific" data-function="sin">sin</button>
+          <button class="scientific" data-function="cos">cos</button>
+          <button class="scientific" data-function="tan">tan</button>
 
-        <button onclick="appendValue('1')">1</button>
-        <button onclick="appendValue('2')">2</button>
-        <button onclick="appendValue('3')">3</button>
-        <button class="equals" onclick="calculate()">=</button>
+          <button class="scientific" data-function="asin">sin⁻¹</button>
+          <button class="scientific" data-function="acos">cos⁻¹</button>
+          <button class="scientific" data-function="atan">tan⁻¹</button>
 
-        <button onclick="appendValue('0')" class="zero">0</button>
-        <button onclick="appendValue('.')">.</button>
-      </div>
+          <button class="scientific" data-function="sqrt">√</button>
 
-      <!-- Technologies -->
-      <div class="footer">HTML • CSS • JavaScript</div>
-    </div>
+          <button class="scientific" data-function="square">x²</button>
+          <button class="scientific" data-function="power">xʸ</button>
 
-    <!-- Developer Name -->
-    <div class="developer-name">Developed by <strong>Arjit Kumar</strong></div>
+          <button class="scientific" data-function="log">log</button>
+          <button class="scientific" data-function="ln">ln</button>
 
-    <!-- JavaScript -->
+          <button class="scientific" data-function="pi">π</button>
+          <button class="scientific" data-function="e">e</button>
+
+          <button class="scientific" data-function="percent">%</button>
+        </div>
+
+        <div class="buttons">
+          <button class="btn function" data-action="clear">AC</button>
+          <button class="btn function" data-action="delete">DEL</button>
+          <button class="btn function" data-action="bracket">( )</button>
+          <button class="btn operator" data-value="/">÷</button>
+
+          <button class="btn number" data-value="7">7</button>
+          <button class="btn number" data-value="8">8</button>
+          <button class="btn number" data-value="9">9</button>
+          <button class="btn operator" data-value="*">×</button>
+
+          <button class="btn number" data-value="4">4</button>
+          <button class="btn number" data-value="5">5</button>
+          <button class="btn number" data-value="6">6</button>
+          <button class="btn operator" data-value="-">−</button>
+
+          <button class="btn number" data-value="1">1</button>
+          <button class="btn number" data-value="2">2</button>
+          <button class="btn number" data-value="3">3</button>
+          <button class="btn operator" data-value="+">+</button>
+
+          <button class="btn number zero" data-value="0">0</button>
+          <button class="btn number" data-value=".">.</button>
+          <button class="btn equals" data-action="calculate">=</button>
+        </div>
+
+        <div id="historyPanel" class="history-panel">
+          <div class="history-header">
+            <h3>Calculation History</h3>
+            <button id="clearHistory">Clear</button>
+          </div>
+
+          <div id="historyList">
+            <p class="empty">No calculations yet</p>
+          </div>
+        </div>
+
+        <div class="footer">
+          Designed & Developed by <strong>Arjit Kumar</strong>
+        </div>
+      </section>
+
+      <footer class="page-footer">
+        © 2026 Arjit Kumar • CodSoft Web Development Internship
+      </footer>
+    </main>
+
     <script src="script.js"></script>
   </body>
 </html>
-```
